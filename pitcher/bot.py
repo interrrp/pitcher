@@ -1,7 +1,7 @@
 from rich.console import Console
 from disnake.ext.commands import InteractionBot
 
-from .settings import Settings
+from pitcher.settings import Settings
 
 
 class PitcherBot(InteractionBot):
@@ -17,7 +17,7 @@ class PitcherBot(InteractionBot):
 
         super().__init__(*args, **kwargs)
 
-        self.settings = Settings()
+        self.settings = Settings.construct()
         self.console = Console()
 
         self.load_extensions("pitcher/exts")

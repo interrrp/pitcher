@@ -1,6 +1,6 @@
 import asyncio
 
-from .bot import PitcherBot
+from pitcher.bot import PitcherBot
 
 
 async def async_main() -> None:

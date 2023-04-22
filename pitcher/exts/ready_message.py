@@ -1,6 +1,6 @@
 from disnake.ext.commands.cog import Cog
 
-from ..bot import PitcherBot
+from pitcher.bot import PitcherBot
 
 
 class ReadyMessage(Cog):
