@@ -17,7 +17,7 @@ class PitcherBot(InteractionBot):
 
         super().__init__(*args, **kwargs)
 
-        self.settings = Settings.construct()
+        self.settings = Settings()  # type: ignore
         self.console = Console()
 
         self.load_extensions("pitcher/exts")
