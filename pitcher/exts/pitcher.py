@@ -26,18 +26,16 @@ class Pitcher(Cog):
             pitch_factor: The factor to pitch the video by (e.g. 0.5 for half speed, 2 for double speed).
         """
 
-        await inter.response.defer()
+        await inter.response.defer(ephemeral=True)
 
         if pitch_factor < 0.1 or pitch_factor > 5:
-            await inter.followup.send(
-                "Pitch factor must be between 0.1 and 5.", ephemeral=True
-            )
+            await inter.followup.send("Pitch factor must be between 0.1 and 5.")
             return
 
         try:
             audio_path = await Pitcher.download_audio(video_link)
         except RegexMatchError:
-            await inter.followup.send("Invalid video link.", ephemeral=True)
+            await inter.followup.send("Invalid video link.")
             return
 
         pitched_path = await Pitcher.pitch_audio(audio_path, pitch_factor)
